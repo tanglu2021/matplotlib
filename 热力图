@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+excel=pd.read_excel('10.xlsx',header=0)
+name_list=list(excel.iloc[[0]])
+print(excel)
+print(name_list)
+df=excel.corr()
+print(df)
+import seaborn as sns
+sns.set(font='simhei')
+plt.figure(1)
+plt.index=df.iloc[0]
+ax=sns.heatmap(df,annot=True,vmin=0.4,vmax=1,square=True,fmt='.2f')
+ax.set_xticklabels(name_list)
+ax.set_yticklabels(name_list)
+plt.show()
